@@ -1,10 +1,15 @@
 import React from 'react'
 
+import PageTitle from '../components/PageTitle'
+
 const Records = () => {
     return (
-        <div>
-            records
+        <>
+            <PageTitle title="Moje wpisy" />
+            <div>
+                records
         </div>
+        </>
     )
 }
 

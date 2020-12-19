@@ -1,10 +1,15 @@
 import React from 'react'
 
+import PageTitle from '../components/PageTitle'
+
 const options = () => {
     return (
-        <div>
-            Options
+        <>
+            <PageTitle title="Opcje" />
+            <div>
+                Options
         </div>
+        </>
     )
 }
 

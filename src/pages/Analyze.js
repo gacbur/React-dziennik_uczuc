@@ -1,10 +1,15 @@
 import React from 'react'
 
+import PageTitle from '../components/PageTitle'
+
 const Analyze = () => {
     return (
-        <div>
-            analyze
+        <>
+            <PageTitle title="Twoja analiza" />
+            <div>
+                analyze
         </div>
+        </>
     )
 }
 
