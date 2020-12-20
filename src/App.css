@@ -12,6 +12,8 @@
   flex-direction: column;
 }
 
+/* Navigation */
+
 .nav{
   display: flex;
   flex-direction: row;
@@ -65,13 +67,14 @@
   width:100%;
 }
 
+/* Page Title */
+
 .page-title{
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 160px;
-  outline:1px solid red;
 }
 
 .page-title h1{
@@ -80,12 +83,13 @@
   border-bottom: 3px solid rgb(51, 175, 175);
 }
 
+/* Add Record */
+
 .add-record-cnt{
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  outline: 1px solid blue;
 }
 
 .add-record{
@@ -95,10 +99,18 @@
 }
 
 .add-record-btn-cnt{
-  outline: 1px solid red;
+  outline:1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .add-record-btn{
+  display: flex;
+  outline:1px solid black;
+  align-items: center;
+  justify-content: center;
   width:8em;
   height: 3.5em;
   cursor: pointer;
@@ -108,6 +120,10 @@
   border: 3px solid  rgb(51, 175, 175);
   transition: .4s;
   box-shadow: 0 5px 16px rgba(0,0,0,0.4);
+}
+
+.add-record-btn-icon{
+  margin-right:.5em;
 }
 
 .add-record-btn:hover{
@@ -125,7 +141,10 @@
   margin: 2em ;
 }
 
+/* Modal */
+
 .modal{
+  transition: .5s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,10 +159,149 @@
   background-color: rgba(0,0,0,0.5); 
 }
 
+.modal-close-btn{
+    cursor: pointer;
+    position: absolute;
+    top:7px;
+    right:7px;
+  }
+
+.modal-close-btn:hover{
+    opacity: 0.6;
+}
+
 .modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   background-color: #fefefe;
   margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
+  max-width: 600px;
   width: 60%;
+  outline: 1px solid yellow;
+  padding:2em;
+}
+
+.modal-title{
+  margin-top:.5em;
+  margin-bottom:.8em;
+  font-weight: 700;
+  font-size: 25px;
+  opacity: 0.6;
+}
+
+.modal-feelings-title{
+  margin-bottom: 1em;
+}
+
+.modal-checkbox-control{
+  display: flex;
+  align-items: center;
+  width:140px;
+}
+
+.modal-checkbox-control label{
+  margin-left: 1em;
+}
+
+.form-input-control{
+  margin-top: 1em;
+  min-width: 90%;
+  max-width: 90%;
+  min-height: 100px;
+  max-height: 300px;
+  padding:.6em .7em;
+}
+
+.form-btn-control{
+  background-color: rgb(51, 175, 175);
+  color:white;
+  border:none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  width:50%;
+  margin-top: 1.5em;
+  padding:1em 2em;
+  cursor: pointer;
+  display: block;
+}
+
+.form-btn-control:hover{
+  background-color: rgb(76, 196, 196);
+}
+
+/* ADD NEW RECORD  */
+
+.add-new-record-btn-cnt{
+  outline:1px solid red;
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.add-new-record-btn{
+  background-color: rgb(121, 197, 127);
+  cursor: pointer;
+  border:none;
+  color:white;
+  font-size:22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  margin-top:2em;
+  padding:.9em 3em;
+}
+
+.add-new-record-btn:hover{
+  background-color: rgb(149, 204, 156);
+}
+
+/* Record preview */
+
+.record-preview-cnt{
+  
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+
+.record-preview-cnt h1{
+
+  font-weight: 600;
+  margin:2em;
+}
+
+.record-preview{
+  width:90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.record-preview-element{
+  outline:1px solid red;
+  width: 25%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.record-preview-title{
+  font-weight: 500;
+}
+
+.record-preview-text{
+  margin-top: 1em;
+  width:con;
+  outline:3px solid blue;
+  
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
 }

@@ -12,11 +12,11 @@ const Nav = () => {
     return (
         <div className="nav">
             <div className="nav-logo">
-                <NavLink to="/dodaj_wpis" exact >Dziennik uczuć  </NavLink>
+                <NavLink to="/" exact >Dziennik uczuć  </NavLink>
             </div>
             <ul className="nav-links">
                 <li className="nav-link">
-                    <NavLink to="/dodaj_wpis" exact activeClassName="nav-link-active">Dodaj wpis  <GoNote className="nav-link-icon" /></NavLink>
+                    <NavLink to="/" exact activeClassName="nav-link-active">Dodaj wpis  <GoNote className="nav-link-icon" /></NavLink>
                 </li>
                 <li className="nav-link">
                     <NavLink to="/wpisy" activeClassName="nav-link-active" >Wpisy <BiBookBookmark className="nav-link-icon" /></NavLink>

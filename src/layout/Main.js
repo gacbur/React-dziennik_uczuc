@@ -11,7 +11,7 @@ const Main = () => {
     return (
         <div className="main">
             <Switch>
-                <Route exact path="/dodaj_wpis" component={AddRecord} />
+                <Route exact path="/" component={AddRecord} />
                 <Route exact path="/wpisy" component={Records} />
                 <Route exact path="/analiza" component={Analyze} />
                 <Route exact path="/opcje" component={Options} />
