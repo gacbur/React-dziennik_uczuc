@@ -1,32 +1,25 @@
-import React, { useState, useContext } from 'react'
-
-import { GlobalContext } from '../context/GlobalContext'
+import React, { useState, useContext, useEffect } from 'react'
 
 import PageTitle from '../components/PageTitle'
 import Modal from '../components/Modal'
+import RecordPreview from '../components/RecordPreview'
+
+import { GlobalContext } from '../context/GlobalContext'
 
 import { GiDirectionSigns, GiBrain } from 'react-icons/gi'
 import { FaHeart } from 'react-icons/fa'
 import { BsFillPersonFill } from 'react-icons/bs'
 
 
-
 const AddRecord = () => {
 
-    const { recordValues } = useContext(GlobalContext)
+    const { recordValues, handleAddNewRecord, AddRecordMessage } = useContext(GlobalContext)
 
     const {
         situationValue,
         thoughtsValue,
         feelingsValue,
-        reactionsValue,
-        fearValue,
-        shameValue,
-        happinesValue,
-        angerValue,
-        sadnessValue,
-        neutralValue,
-        unconcernValue, } = recordValues
+        reactionsValue } = recordValues
 
     const [buttonActive, setButtonActive] = useState({
         situation: false,
@@ -38,6 +31,23 @@ const AddRecord = () => {
     const [modalActive, setModalActive] = useState(true)
 
     const { situation, thoughts, feelings, reactions } = buttonActive
+
+    const [showRecordPreview, setShowRecordPreview] = useState(false)
+
+    useEffect(() => {
+
+        const handleShowRecordPreview = () => {
+            if (situationValue && thoughtsValue && feelingsValue && reactionsValue !== '') {
+                setShowRecordPreview(true)
+            }
+            else {
+                setShowRecordPreview(false)
+            }
+        }
+
+        handleShowRecordPreview()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [recordValues])
 
     return (
         <>
@@ -74,36 +84,13 @@ const AddRecord = () => {
                 </div>
             </div>
             <div className="add-new-record-btn-cnt">
-                <button className="add-new-record-btn">Dodaj Wpis</button>
+                <button onClick={() => handleAddNewRecord()} className="add-new-record-btn">Dodaj Wpis</button>
+                <span className="add-new-record-message">
+                    {AddRecordMessage !== '' ? AddRecordMessage : null}
+                </span>
             </div>
-            <div className="record-preview-cnt">
-                <h1>Podgląd wpisu</h1>
-                <div className="record-preview">
-                    <div className="record-preview-element">
-                        <h2 className="record-preview-title">Sytuacja</h2>
-                        <p className="record-preview-text">{situationValue}</p>
-                    </div>
-                    <div className="record-preview-element">
-                        <h2 className="record-preview-title">Myśli</h2>
-                        <p className="record-preview-text">{thoughtsValue}</p>
-                    </div>
-                    <div className="record-preview-element">
-                        <h2 className="record-preview-title">Uczucia</h2>
-                        <p className="record-preview-text">{feelingsValue}</p>
-                        {fearValue ? <p className="record-preview-text">Uczucie: Lęk</p> : null}
-                        {shameValue ? <p className="record-preview-text">Uczucie: Wstyd</p> : null}
-                        {happinesValue ? <p className="record-preview-text">Uczucie: Radość</p> : null}
-                        {angerValue ? <p className="record-preview-text">Uczucie: Złość</p> : null}
-                        {sadnessValue ? <p className="record-preview-text">Uczucie: Smutek</p> : null}
-                        {neutralValue ? <p className="record-preview-text">Uczucie: Neutralność</p> : null}
-                        {unconcernValue ? <p className="record-preview-text">Uczucie: Obojętność</p> : null}
-                    </div>
-                    <div className="record-preview-element">
-                        <h2 className="record-preview-title">Reakcje</h2>
-                        <p className="record-preview-text">{reactionsValue}</p>
-                    </div>
-                </div>
-            </div>
+            {showRecordPreview ? <RecordPreview setButtonActive={setButtonActive} buttonActive={buttonActive} /> : null}
+
         </>
     )
 }

@@ -1,5 +1,8 @@
 import React from 'react'
-import { createContext, useReducer } from 'react'
+import { createContext, useReducer, useState } from 'react'
+
+import uuid from 'react-uuid'
+
 
 import { AppReducer } from '../reducer/AppReducer'
 
@@ -26,8 +29,6 @@ export const GlobalContextProvider = (props) => {
 
     const [state, dispatch] = useReducer(AppReducer, initialState)
 
-    console.log(state.recordValues.situationValue)
-
     const handleChangeRecordValues = (e) => {
         const target = e.target
         const name = e.target.name
@@ -42,10 +43,41 @@ export const GlobalContextProvider = (props) => {
         })
     }
 
+    const {
+        situationValue,
+        thoughtsValue,
+        feelingsValue,
+        reactionsValue,
+    } = state.recordValues
+
+    const [AddRecordMessage, setAddRecordMessage] = useState('')
+
+    const handleAddNewRecord = () => {
+
+        if (situationValue && thoughtsValue && feelingsValue && reactionsValue !== '') {
+            setAddRecordMessage('Wpis został dodany pomyślnie!')
+            setTimeout(() => setAddRecordMessage(''), 3000)
+            dispatch({
+                type: 'addNewRecord', payload: {
+                    id: uuid(),
+                    ...state.recordValues
+                }
+            })
+            dispatch({ type: 'resetInputvalues' })
+        }
+        else {
+            setAddRecordMessage('Żeby dodać wpis, wszystkie pola tekstowe muszą być wypełnione!')
+            setTimeout(() => setAddRecordMessage(''), 3000)
+        }
+    }
+
     return (
         <GlobalContext.Provider value={{
+            records: state.records,
             recordValues: state.recordValues,
-            handleChangeRecordValues
+            AddRecordMessage: AddRecordMessage,
+            handleChangeRecordValues,
+            handleAddNewRecord
         }} >
             {props.children}
         </GlobalContext.Provider>

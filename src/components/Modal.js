@@ -111,10 +111,8 @@ const Modal = ({ buttonActive, setModalActive, setButtonActive }) => {
             </div>
         )
     }
-
     return (
         null
     )
-
 }
 export default Modal
