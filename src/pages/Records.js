@@ -5,8 +5,6 @@ import { GlobalContext } from '../context/GlobalContext'
 import PageTitle from '../components/PageTitle'
 import Record from '../components/Record'
 
-
-
 const Records = () => {
 
     const { records } = useContext(GlobalContext)

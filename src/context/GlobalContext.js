@@ -1,13 +1,13 @@
 import React from 'react'
-import { createContext, useReducer, useState } from 'react'
+import { createContext, useReducer, useState, useEffect } from 'react'
 
 import uuid from 'react-uuid'
-
+import moment from 'moment'
 
 import { AppReducer } from '../reducer/AppReducer'
 
 const initialState = {
-    records: [],
+    records: localStorage.getItem('records') ? JSON.parse(localStorage.getItem('records')) : [],
     recordValues: {
         situationValue: '',
         thoughtsValue: '',
@@ -15,7 +15,7 @@ const initialState = {
         reactionsValue: '',
         fearValue: false,
         shameValue: false,
-        happinesValue: false,
+        happinessValue: false,
         angerValue: false,
         sadnessValue: false,
         neutralValue: false,
@@ -28,6 +28,10 @@ export const GlobalContext = createContext()
 export const GlobalContextProvider = (props) => {
 
     const [state, dispatch] = useReducer(AppReducer, initialState)
+
+    useEffect(() => {
+        localStorage.setItem('records', JSON.stringify(state.records))
+    }, [state.records])
 
     const handleChangeRecordValues = (e) => {
         const target = e.target
@@ -53,12 +57,12 @@ export const GlobalContextProvider = (props) => {
     const [AddRecordMessage, setAddRecordMessage] = useState('')
 
     const handleAddNewRecord = () => {
-
         if (situationValue && thoughtsValue && feelingsValue && reactionsValue !== '') {
             setAddRecordMessage('Wpis został dodany pomyślnie!')
             setTimeout(() => setAddRecordMessage(''), 3000)
             dispatch({
                 type: 'addNewRecord', payload: {
+                    date: moment().format('YYYY-MM-DD'),
                     id: uuid(),
                     ...state.recordValues
                 }
@@ -71,13 +75,24 @@ export const GlobalContextProvider = (props) => {
         }
     }
 
+    const handleDeleteRecord = (id) => {
+
+        const recordsArr = [...state.records]
+        const tempRecords = recordsArr.filter(item => item.id !== id)
+
+        dispatch({ type: 'deleteRecord', payload: tempRecords })
+    }
+
+
+
     return (
         <GlobalContext.Provider value={{
             records: state.records,
             recordValues: state.recordValues,
             AddRecordMessage: AddRecordMessage,
             handleChangeRecordValues,
-            handleAddNewRecord
+            handleAddNewRecord,
+            handleDeleteRecord
         }} >
             {props.children}
         </GlobalContext.Provider>

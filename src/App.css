@@ -108,7 +108,6 @@
 
 .add-record-btn{
   display: flex;
-  outline:1px solid black;
   align-items: center;
   justify-content: center;
   width:8em;
@@ -325,3 +324,109 @@
 }
 
 /* Records */
+
+.records-cnt{
+  width:100%;
+  margin-bottom:3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.records{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width:90%;
+}
+
+.record{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  width:100%;
+  margin:.7em 0em;
+}
+
+.record-date{
+padding: .5em 1em;
+margin-bottom: .4em;
+}
+
+.record-content-columns-cnt{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: .2em;
+  padding:.7em .5em;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 1000px;
+}
+
+.record-content-column{
+  padding: 0em .6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:22%;
+  word-wrap:break-word;
+}
+
+.record-content-column h3{
+  font-size: 16px;
+  margin-bottom:1em;
+}
+
+.record-content-column p{
+  margin-bottom: .5em;
+  font-size: 12px;
+}
+
+.record-date{
+  font-size: 12px;
+  color:white;
+  background-color: rgb(51, 175, 175);
+}
+
+.record-feeling-text{
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.delete-column{
+  width:15%;
+  height: 100%;
+  font-size:25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-delete{
+  background-color: white;
+  border:none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.record-delete:hover{
+  transition: .2s;
+  color:rgb(250, 71, 71);
+}
+
+.record-delete-icon{
+  font-size: 25px;
+}
+
+/* Analyze */
+
+.analyze-chart-cnt{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+

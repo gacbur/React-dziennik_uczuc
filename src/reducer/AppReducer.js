@@ -37,6 +37,13 @@ export const AppReducer = (state, action) => {
                     unconcernValue: false,
                 }
             }
+        case 'deleteRecord':
+            return {
+                records: action.payload,
+                recordValues: {
+                    ...state.recordValues
+                }
+            }
         default:
             return state
     }

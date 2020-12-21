@@ -26,7 +26,6 @@ const Modal = ({ buttonActive, setModalActive, setButtonActive }) => {
 
     const { situation, thoughts, feelings, reactions } = buttonActive
 
-
     const handleCloseModal = () => {
         setButtonActive({
             situation: false,
