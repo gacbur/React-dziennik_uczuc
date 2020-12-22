@@ -8,6 +8,7 @@ import { AppReducer } from '../reducer/AppReducer'
 
 const initialState = {
     records: localStorage.getItem('records') ? JSON.parse(localStorage.getItem('records')) : [],
+    sortedRecords: [],
     recordValues: {
         situationValue: '',
         thoughtsValue: '',
@@ -20,7 +21,10 @@ const initialState = {
         sadnessValue: false,
         neutralValue: false,
         unconcernValue: false,
-    }
+    },
+    sortingValues: {
+        date: 'all'
+    },
 }
 
 export const GlobalContext = createContext()
@@ -28,6 +32,8 @@ export const GlobalContext = createContext()
 export const GlobalContextProvider = (props) => {
 
     const [state, dispatch] = useReducer(AppReducer, initialState)
+
+    const [sortingHandled, setSortingHandled] = useState(false)
 
     useEffect(() => {
         localStorage.setItem('records', JSON.stringify(state.records))
@@ -83,16 +89,59 @@ export const GlobalContextProvider = (props) => {
         dispatch({ type: 'deleteRecord', payload: tempRecords })
     }
 
+    const handleDeleteAllRecords = () => {
+        dispatch({ type: 'deleteAllRecords' })
+    }
+
+    const handleUpdateFilterValues = e => {
+        const name = e.target.name
+        const value = e.target.value
+
+        console.log("wywołuje")
+
+        dispatch({
+            type: 'upadteFilterValues', payload: {
+                name,
+                value
+            }
+        })
+
+        setSortingHandled(prevState => !prevState)
+    }
+
+    useEffect(() => {
+
+        const filterRooms = () => {
+
+            let { date } = state.sortingValues
+
+            let tempRecords = [...state.records];
+
+            if (date !== "all") {
+                tempRecords = tempRecords.filter(room => room.date === date);
+            }
+
+            dispatch({
+                type: 'updateSortedRecords', payload: tempRecords
+            })
+        }
+
+        filterRooms()
+    }, [sortingHandled])
 
 
     return (
         <GlobalContext.Provider value={{
             records: state.records,
+            sortedRecords: state.sortedRecords,
             recordValues: state.recordValues,
+            sortingValues: state.sortingValues,
             AddRecordMessage: AddRecordMessage,
             handleChangeRecordValues,
             handleAddNewRecord,
-            handleDeleteRecord
+            handleDeleteRecord,
+            handleDeleteAllRecords,
+            handleUpdateFilterValues
         }} >
             {props.children}
         </GlobalContext.Provider>

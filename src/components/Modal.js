@@ -42,7 +42,6 @@ const Modal = ({ buttonActive, setModalActive, setButtonActive }) => {
         feelings: 'Opisz co czułeś/aś własnymi słowami',
         reactions: 'Opisz reakcje ciała i Twoje zachowanie'
     }
-
     const checkboxes = [
         { type: 'checkbox', name: "fearValue", item_name: 'Lęk', value: fearValue },
         { type: 'checkbox', name: "shameValue", item_name: 'Wstyd', value: shameValue },

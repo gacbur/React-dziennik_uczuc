@@ -143,7 +143,6 @@
 /* Modal */
 
 .modal{
-  transition: .5s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -429,4 +428,156 @@ margin-bottom: .4em;
   justify-content: center;
 }
 
+/* Options */
+
+.options-cnt{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.options-delete-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding:1em 2em;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  border: 3px solid rgb(250, 71, 71);
+  transition: .4s;
+  box-shadow: 0 5px 16px rgba(0,0,0,0.4);
+}
+
+.options-delete-btn:hover{
+  transform: scale(1.05);
+  color:white;
+  transition: .3s;
+  background-color: rgb(250, 71, 71);      
+}
+
+.options-delete-btn-icon{
+  margin-left:1em;
+}
+
+.records-delete-text{
+  margin-top:1.5em;
+}
+
+/* Approval Modal */
+
+.approval-modal{
+  visibility:hidden;
+  transition: .1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  opacity:0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.approval-modal.show{
+  opacity:1;
+  transition: .35s ease;
+  visibility: visible;
+} 
+
+.approval-modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 600px;
+  width: 60%;
+  padding:2em;
+}
+
+.approval-modal-text-cnt{
+  display: flex;
+  padding-top: 1em;
+  padding-bottom:4em;
+  text-align: center;
+  height: 50%;
+  width:100%;
+} 
+
+.approval-modal-text{
+  width: 100%;
+}
+
+.approval-modal-bttm-cnt{
+  display: flex;
+  height: 50%;
+  width:100%;
+}
+
+.approval-modal-bttm-left-cnt{
+  display: flex;
+  padding:1em;
+  justify-content: center;
+  height: 50%;
+  width:50%;
+}
+
+.approval-modal-bttm-left-cnt button{
+  background-color: rgb(250, 71, 71);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  border:none;
+  padding:1.5em 4em;
+  color:white
+}
+
+.approval-modal-bttm-right-cnt{
+  display: flex;
+  padding:1em;
+  justify-content: center;
+  height: 50%;
+  width:50%;
+}
+
+.approval-modal-bttm-right-cnt button{
+  background-color: rgb(121, 197, 127);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  border:none;
+  padding:1.5em 4em;
+  color:white
+}
+
+.approval-no button:hover, .approval-yes button:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.approval-modal-close-btn{
+  position:absolute;
+  cursor: pointer;
+  border:none;
+  background-color: white;
+  font-size: 18px;
+  top:10px;
+  right:10px;
+}
+
+/* NoContentHere */
+
+.no-content-here{
+  width: 100%;
+  text-align: center;
+}
 
