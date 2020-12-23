@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 
 import PageTitle from '../components/PageTitle'
 import Modal from '../components/Modal'
-import RecordPreview from '../components/RecordPreview'
 
 import { GlobalContext } from '../context/GlobalContext'
 
@@ -13,13 +12,7 @@ import { BsFillPersonFill } from 'react-icons/bs'
 
 const AddRecord = () => {
 
-    const { recordValues, handleAddNewRecord, AddRecordMessage } = useContext(GlobalContext)
-
-    const {
-        situationValue,
-        thoughtsValue,
-        feelingsValue,
-        reactionsValue } = recordValues
+    const { handleAddNewRecord, AddRecordMessage } = useContext(GlobalContext)
 
     const [buttonActive, setButtonActive] = useState({
         situation: false,
@@ -31,23 +24,6 @@ const AddRecord = () => {
     const [modalActive, setModalActive] = useState(true)
 
     const { situation, thoughts, feelings, reactions } = buttonActive
-
-    const [showRecordPreview, setShowRecordPreview] = useState(false)
-
-    useEffect(() => {
-
-        const handleShowRecordPreview = () => {
-            if (situationValue && thoughtsValue && feelingsValue && reactionsValue !== '') {
-                setShowRecordPreview(true)
-            }
-            else {
-                setShowRecordPreview(false)
-            }
-        }
-
-        handleShowRecordPreview()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [recordValues])
 
     return (
         <>
@@ -89,7 +65,6 @@ const AddRecord = () => {
                     {AddRecordMessage !== '' ? AddRecordMessage : null}
                 </span>
             </div>
-            {showRecordPreview ? <RecordPreview setButtonActive={setButtonActive} buttonActive={buttonActive} /> : null}
 
         </>
     )

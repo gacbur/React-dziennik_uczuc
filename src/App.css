@@ -21,6 +21,10 @@
   background-color: rgb(51, 175, 175);
 }
 
+.nav-hamburger-btn{
+  display: none;
+}
+
 .nav-logo{
   margin-left:2em;
   font-size: 23px;
@@ -261,68 +265,18 @@
   top:100px;
 }
 
-/* Record preview */
+/* Records */
 
-.record-preview-cnt{
+.records-filter-form{
+  margin: 3em 0em;
   width:100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 3em;
-  margin-top: 2em;
 }
 
-.record-preview-cnt h1{
-  font-weight: 600;
-  margin:2em;
-}
-
-.record-preview{
+.form{
   width:90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
-
-.record-preview-element{
-  width:25%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.record-preview-title{
-  letter-spacing: 1.5px;
-  height: 50px;
-  position: relative;
-  cursor:pointer;
-}
-
-.record-preview-title:hover .record-preview-edit-icon{
-  position: absolute;
-  transition: .3s;
-  display: block;
-  right: -30px;
-  top:0px;
-  opacity: 1;
-}
-
-.record-preview-edit-icon{
-  opacity: 0;
-  display: block;
-}
-
-.record-preview-text{
-  margin-top: 1em;
-  width:80%;
-  word-wrap:break-word;
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
-
-/* Records */
 
 .records-cnt{
   width:100%;
@@ -350,8 +304,8 @@
 }
 
 .record-date{
-padding: .5em 1em;
-margin-bottom: .4em;
+  padding: .5em 1em;
+  margin-bottom: .4em;
 }
 
 .record-content-columns-cnt{
@@ -426,6 +380,7 @@ margin-bottom: .4em;
   width:100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /* Options */
@@ -581,3 +536,152 @@ margin-bottom: .4em;
   text-align: center;
 }
 
+
+/* MOBILE  */
+
+@media all and (max-width:700px){
+  
+/* Nav */
+
+  .nav{
+    flex-direction: column;
+    margin-bottom: 1px solid white;
+  }
+
+  .nav-logo{
+    position: relative;
+    width: 100%;
+    padding: 1em;
+    margin-left:0;
+  }
+
+  .nav-hamburger-btn{
+    cursor: pointer;
+    position: absolute;
+    border:none;
+    background-color: rgb(51, 175, 175);
+    color:white;
+    font-size: 26px;
+    padding: 1em 1em;
+    right:0px;
+    top:0px;
+    display: flex;
+  }
+
+  .nav-links{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-links.show{
+    display: flex;
+  }
+
+  .nav-link-active{
+    border-bottom:none;
+    border-left: 5px solid rgb(16, 111, 189);
+  }
+  
+  .nav-link-icon{
+    padding-left:0em;
+  }
+  
+  .nav-link a{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Page title */
+
+  .page-title{
+    height: 120px;
+  }
+
+  /* Add Record */
+
+  .add-record{
+    width:100%;
+  }
+
+  .add-record-btn-cnt{
+    flex-direction: column;
+  }
+
+  .add-record-btn{
+    width:10em;
+  }
+
+  /* Modal */
+  
+  .modal-content{
+    width: 97%;
+    padding:2em 0em;
+  }
+  
+  /* Add new record btn */
+
+  .add-new-record-btn-cnt{
+    margin-bottom: 6em;
+  }
+
+  /* Records  */
+
+  .records-filter-form{
+    margin: 1em 0em;
+  }
+  
+  .form{
+    width:90%;
+  }
+  
+  .records{
+    width:95%;
+  }
+  
+  .record-content-columns-cnt{
+    flex-direction: column;
+  }
+  
+  .record-content-column{
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    width:100%;
+  }
+  
+  .record-content-column h3{
+    letter-spacing: 1px;
+    margin-bottom:.5em;
+  }
+  
+  .record-content-column p{
+    margin-bottom: .5em;
+    font-size: 12px;
+  }
+  
+  .delete-column{
+    border-bottom: none;
+    font-size:25px;
+    display: flex;
+    align-items: flex-start;
+    margin-left:1em;
+  }
+  
+  .record-delete{
+    margin-top:1em;
+  }
+
+  /* Options */
+
+  .options-delete-btn{
+    padding:1em 1em;
+  }
+
+  /* Approval Modal */
+
+  .approval-modal-content{
+    width: 95%;
+    padding:1em;
+  }
+}

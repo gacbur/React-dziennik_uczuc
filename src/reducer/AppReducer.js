@@ -92,6 +92,11 @@ export const AppReducer = (state, action) => {
                     [action.payload.name]: action.payload.value
                 }
             }
+        case 'getSortedRecords':
+            return {
+                ...state,
+                sortedRecords: action.payload
+            }
         case 'updateSortedRecords':
             return {
                 records: [

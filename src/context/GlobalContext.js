@@ -37,6 +37,7 @@ export const GlobalContextProvider = (props) => {
 
     useEffect(() => {
         localStorage.setItem('records', JSON.stringify(state.records))
+        dispatch({ type: 'getSortedRecords', payload: state.records })
     }, [state.records])
 
     const handleChangeRecordValues = (e) => {
@@ -46,7 +47,8 @@ export const GlobalContextProvider = (props) => {
             target.checked : target.value
 
         dispatch({
-            type: 'changeRecordValues', payload: {
+            type: 'changeRecordValues',
+            payload: {
                 name,
                 value,
             }
@@ -67,7 +69,8 @@ export const GlobalContextProvider = (props) => {
             setAddRecordMessage('Wpis został dodany pomyślnie!')
             setTimeout(() => setAddRecordMessage(''), 3000)
             dispatch({
-                type: 'addNewRecord', payload: {
+                type: 'addNewRecord',
+                payload: {
                     date: moment().format('YYYY-MM-DD'),
                     id: uuid(),
                     ...state.recordValues
@@ -97,15 +100,12 @@ export const GlobalContextProvider = (props) => {
         const name = e.target.name
         const value = e.target.value
 
-        console.log("wywołuje")
-
         dispatch({
             type: 'upadteFilterValues', payload: {
                 name,
                 value
             }
         })
-
         setSortingHandled(prevState => !prevState)
     }
 

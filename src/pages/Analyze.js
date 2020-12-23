@@ -10,7 +10,6 @@ import { PieChart, Pie, Tooltip, } from 'recharts'
 const Analyze = () => {
 
     const { records } = useContext(GlobalContext)
-
     const [data, setData] = useState()
 
     useEffect(() => {
@@ -45,17 +44,17 @@ const Analyze = () => {
             <PageTitle title="Twoja analiza" />
             {records.length === 0 ? <NoContentHere text="Brak analizy, dodaj wpisy!" /> : null}
             <div className="analyze-chart-cnt">
-                <div className="analyze chart">
-                    <PieChart
-                        width={400}
-                        height={400}>
+                <div className="analyze-chart">
+                    <PieChart className="pie-chart"
+                        width={320}
+                        height={320}>
                         <Pie
                             dataKey="value"
                             isAnimationActive={false}
                             data={data}
-                            cx={200}
-                            cy={200}
-                            outerRadius={170}
+                            cx={160}
+                            cy={160}
+                            outerRadius={110}
                             fill="#106fbd"
                             label />
                         <Tooltip />

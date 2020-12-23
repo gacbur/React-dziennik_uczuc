@@ -6,9 +6,7 @@ const RecordsFilter = () => {
 
     const { sortingValues, records, handleUpdateFilterValues } = useContext(GlobalContext)
 
-    const {
-        date,
-    } = sortingValues
+    const { date } = sortingValues
 
     const getUnique = (items, value) => {
         return [...new Set(items.map(item => item[value]))];
@@ -19,7 +17,6 @@ const RecordsFilter = () => {
     dates = dates.map((item, index) => (
         <option key={index} value={item}>{item}</option>
     ));
-
 
     return (
         <form className="records-filter-form">
