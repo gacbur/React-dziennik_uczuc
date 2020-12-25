@@ -10,7 +10,7 @@ import { PieChart, Pie, Tooltip, } from 'recharts'
 const Analyze = () => {
 
     const { records } = useContext(GlobalContext)
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
 
     useEffect(() => {
 
@@ -39,10 +39,22 @@ const Analyze = () => {
         getCurrentAnalyzeValues()
     }, [records])
 
+    let feelingsData = [...data]
+    const feelingsCount = feelingsData.reduce((feelingsCounter, { value }) => value > 0 ? feelingsCounter + value : feelingsCounter, 0);
+
     return (
         <>
             <PageTitle title="Twoja analiza" />
             {records.length === 0 ? <NoContentHere text="Brak analizy, dodaj wpisy!" /> : null}
+            <div className="analyze-text-cnt">
+                <div className="analyze-text">
+                    <h3>Częstotliwość występowania uczuć:</h3>
+                    {data.map(item => (
+                        <p key={item.name}>{item.name}: <strong>{item.value === 0 ? 'brak' : item.value}</strong></p>
+                    ))}
+                    <h3>Ogólna liczba uczuć: {feelingsCount}</h3>
+                </div>
+            </div>
             <div className="analyze-chart-cnt">
                 <div className="analyze-chart">
                     <PieChart className="pie-chart"

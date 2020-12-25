@@ -276,6 +276,7 @@
 
 .form{
   width:90%;
+  max-width: 980px;
 }
 
 .records-cnt{
@@ -381,6 +382,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.analyze-text-cnt{
+  display: flex;
+  justify-content: center;
+}
+
+.analyze-text-cnt h3{
+  margin: 1em 0em;
 }
 
 /* Options */

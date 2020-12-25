@@ -22,8 +22,6 @@ const Modal = ({ buttonActive, setModalActive, setButtonActive }) => {
         neutralValue,
         unconcernValue, } = recordValues
 
-    console.log(situationValue)
-
     const { situation, thoughts, feelings, reactions } = buttonActive
 
     const handleCloseModal = () => {
@@ -54,7 +52,7 @@ const Modal = ({ buttonActive, setModalActive, setButtonActive }) => {
 
     if (situation) {
         return (
-            <div className="modal" onClick={() => console.log('klikniete')}>
+            <div className="modal">
                 <div className="modal-content">
                     <span className="modal-title">Sytuacja</span>
                     <textarea className="form-input-control" placeholder={placeholders.situation} type="text" name="situationValue" value={situationValue} onChange={(e) => handleChangeRecordValues(e)}></textarea>
