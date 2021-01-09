@@ -12,13 +12,21 @@
   flex-direction: column;
 }
 
+:root {
+  --main-blue: rgb(51, 175, 175);
+  --main-blue-hover:  rgb(81, 194, 194);
+  --second-green: rgb(121, 197, 127);
+  --second-green-hover: rgb(149, 204, 156);
+  --second-red: rgb(250, 71, 71);
+}
+
 /* Navigation */
 
 .nav{
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgb(51, 175, 175);
+  background-color: var(--main-blue);
 }
 
 .nav-hamburger-btn{
@@ -47,7 +55,7 @@
 }
 
 .nav-link:hover{
-  background-color: rgb(81, 194, 194);
+  background-color: var(--main-blue-hover);
 }
 
 .nav-link-active{
@@ -84,7 +92,7 @@
 .page-title h1{
   font-size: 34px;
   letter-spacing: 1.8px;
-  border-bottom: 3px solid rgb(51, 175, 175);
+  border-bottom: 3px solid var(--main-blue);
 }
 
 /* Add Record */
@@ -120,7 +128,7 @@
   font-size: 19px;
   font-weight: 600;
   letter-spacing: 1.4px;
-  border: 3px solid  rgb(51, 175, 175);
+  border: 3px solid var(--main-blue);
   transition: .4s;
   box-shadow: 0 5px 16px rgba(0,0,0,0.4);
 }
@@ -133,7 +141,7 @@
   transform: scale(1.05);
   color:white;
   transition: .3s;
-  background-color: rgb(51, 175, 175);      
+  background-color: var(--main-blue);      
 }
 
 .add-record-btn:first-child{
@@ -219,7 +227,7 @@
 }
 
 .form-btn-control{
-  background-color: rgb(51, 175, 175);
+  background-color: var(--main-blue);
   color:white;
   border:none;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -231,7 +239,7 @@
 }
 
 .form-btn-control:hover{
-  background-color: rgb(76, 196, 196);
+  background-color: var(--main-blue-hover);
 }
 
 /* ADD NEW RECORD  */
@@ -246,7 +254,7 @@
 }
 
 .add-new-record-btn{
-  background-color: rgb(121, 197, 127);
+  background-color: var(--second-green);
   cursor: pointer;
   border:none;
   color:white;
@@ -257,7 +265,7 @@
 }
 
 .add-new-record-btn:hover{
-  background-color: rgb(149, 204, 156);
+  background-color: var(--second-green-hover);
 }
 
 .add-new-record-message{
@@ -342,7 +350,7 @@
 .record-date{
   font-size: 12px;
   color:white;
-  background-color: rgb(51, 175, 175);
+  background-color: var(--main-blue);
 }
 
 .record-feeling-text{
@@ -368,7 +376,7 @@
 
 .record-delete:hover{
   transition: .2s;
-  color:rgb(250, 71, 71);
+  color: var(--second-red);
 }
 
 .record-delete-icon{
@@ -412,7 +420,7 @@
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 1.4px;
-  border: 3px solid rgb(250, 71, 71);
+  border: 3px solid var(--second-red);
   transition: .4s;
   box-shadow: 0 5px 16px rgba(0,0,0,0.4);
 }
@@ -421,7 +429,7 @@
   transform: scale(1.05);
   color:white;
   transition: .3s;
-  background-color: rgb(250, 71, 71);      
+  background-color: var(--second-red);    
 }
 
 .options-delete-btn-icon{
@@ -501,7 +509,7 @@
 }
 
 .approval-modal-bttm-left-cnt button{
-  background-color: rgb(250, 71, 71);
+  background-color:var(--second-red);
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   border:none;
   padding:1.5em 4em;
@@ -517,7 +525,7 @@
 }
 
 .approval-modal-bttm-right-cnt button{
-  background-color: rgb(121, 197, 127);
+  background-color: var(--second-green);
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   border:none;
   padding:1.5em 4em;
@@ -569,7 +577,7 @@
     cursor: pointer;
     position: absolute;
     border:none;
-    background-color: rgb(51, 175, 175);
+    background-color: var(--main-blue);
     color:white;
     font-size: 26px;
     padding: 1em 1em;
